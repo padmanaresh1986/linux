@@ -1,6 +1,8 @@
 **Useful Linux Commands**
 
 **Directory Navigation**  
+
+
 Change to /home directory   
 >$ cd /home  
 
@@ -14,6 +16,8 @@ Print’s current directory you are in
 >$ pwd  
 
 **System Information**  
+
+
 Display Linux kernel information  
 >$ uname -a  
 
@@ -44,3 +48,23 @@ Display who is online
 Who you are logged in as  
 >$ whoami  
 >$ id  
+
+
+**Hardware Information**  
+
+Display CPU information  
+>$ cat /proc/cpuinfo  
+
+Display number of CPU cores  
+>$ nproc  
+
+Display memory information  
+>$ cat /proc/meminfo  
+
+Display environment variables of a process, e.g: PID 1  
+>$ cat /proc/1/environ  
+
+Display free and used memory ( -h for human-readable, -m for MB, -g for GB.)  
+>$ free -h  
+
+
