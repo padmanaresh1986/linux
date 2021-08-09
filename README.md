@@ -1,5 +1,5 @@
 **Useful Linux Commands**
 
-**Directory Navigation**
-Change to /home directory
+**Directory Navigation** 
+Change to /home directory 
 >$ cd /home
