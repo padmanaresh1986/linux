@@ -187,5 +187,146 @@ Give all permission to the owner, read execute to the group and nothing to other
 Change ownership of a file or directory to a given user and group  
 >$ chown user:group file1  
 
+**Networking**  
+
+Display information of all available network interfaces  
+>$ ip addr
+>$ ifconfig -a    # deprecated
+
+Display information of eth0 interface  
+>$ ip addr show eth0
+>$ ifconfig eth0  # deprecated
+
+Display IP routing table  
+>$ ip route
+>$ route   # deprecated
+
+Ping a hostname or IP address  
+>$ ping google.com
+>$ ping 8.8.8.8
+
+Display registration information of a domain  
+>$ whois medium.com
+
+DNS lookup a domain  
+>$ dig medium.com A     # IPv4 addresses
+>$ dig medium.com AAAA  # IPv6 addresses
+>$ dig medium.com NX    # Nameservers
+>$ host medium.com     # IPv4 addresses
+
+Display hostname and IP address of the local machine  
+>$ hostname
+>$ hostname -i
+
+Download files from a remote HTTP server  
+>$ wget [http://ipv4.download.thinkbroadband.com/5MB.zip](http://ipv4.download.thinkbroadband.com/5MB.zip)
+>$ curl --output 5MB.zip [http://ipv4.download.thinkbroadband.com/5MB.zip](http://ipv4.download.thinkbroadband.com/5MB.zip)
+
+Display all process listening on TCP or UDP ports  
+>$ netstat -plunt
+>$ lsof -i
+>$ lsof -i tcp     # only TCP ports
+
+**Text Search**  
+
+Search for a pattern in a text file  
+>$ grep pattern file
+># For example:
+>$ grep root /etc/passwd
+
+Search recursively for a pattern in a text file inside a directory  
+>$ grep -R "/bin/bash" /etc
+
+Search for pattern and output N lines before (B) or after (A) pattern match  
+>$ grep -B 5 root /etc/passwd
+>$ grep -A 3 root /etc/passwd
+
+Find files within a directory with a matching filename  
+>find /etc -iname 'passwd'
+>find /etc -iname 'pass*'  # glob pattern
+
+Find files based on filesize  
+>find / -size +1M #  larger than 1MB
+>find / -size -1M # smaller than 1MB
+
+
+**Disk Usage**  
+
+Show free and used space of disk storages  
+>df -h
+
+Show disk space consumed by a directory or file  
+>du -sh /var/log
+>du -h 5MB.zip
+
+Interactive disk usage explorer  
+>apt install ncdu
+>ncdu
+
+
+**Pipes and Redirection**  
+
+REDIRECTION Redirect normal output (stdout) from a command to a file  
+>echo "hello" > hello.stdout.txt
+>echo "world" > hello.stdout.txt
+
+Redirect error output (stderr) from a command to a file  
+>cat somefile 2> cat.stderr.txt
+
+Redirect both normal and error output from a command to a file. Useful for logging.  
+>ps auxf >& processes.txt
+
+Append normal output (stdout) from a command to a file unlike > which overwrites the file  
+>echo "hello" >> hello2.stdout.txt
+>echo "world! >> hello2.stdout.txt
+
+Append error output (stderr) from a command to a file  
+>cat some-unknown-file 2>> cat2.stderr.txt
+
+Append both normal and error output (stderr) from a command to a file  
+>ps auxf &>> processes.txt  
+
+**PIPES**  
+
+The shell pipe **is a way to **communicate between commands.  
+Create a dummy file to learn to pipe  
+
+>mkdir pipes-example
+>cd pipes-example
+>touch {1..10}.txt
+
+Example 1: Let’s use sort command  
+>ls -1 *.txt | sort -n    # sorts the output in ASC order
+>ls -1 *.txt | sort -nr   # sorts the output in DESC order
+
+Example 2: Let’s use head & tail command  
+>ls -1 *.txt | sort -n | head -n 5  # show the first 5 lines
+>ls -1 *.txt | sort -n | tail -n 5  # show the last 5 lines
+
+Example 3: Search for a pattern in a text file  
+>cat /etc/passwd | grep root    # show lines containing string 'root'
+
+
+**Environment Variables**  
+
+List all environment variables  
+>$ env
+
+Display value of an environment variable  
+>echo $HOME
+>echo $SHELL 
+
+Create an environment variable  
+>export PORT=80
+>export PLATFORM=medium.com
+
+Delete an environment variable  
+>unset PORT  
+
+PATH is one of the common and important environment variables. What do you think will happen if you unset it?  
+>$ echo $PATH
+>$ unset PATH
+
+
 
 
