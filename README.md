@@ -174,14 +174,14 @@ Display the last 10 lines of a file and follow the file as it updated.
 **File Permissions** 
 
 Give all permission to the owner, read execute to the group and nothing to others  
-># Create a file
+>Create a file
 >$ touch file1
 
-># Set permission using either of the method
+>Set permission using either of the method
 >$ chmod 750 file1
 >$ chmod u=rwx,g=rx,o= file1
 
-># List the file permission
+> List the file permission
 >$ ls -lh file1
 
 Change ownership of a file or directory to a given user and group  
@@ -231,7 +231,7 @@ Display all process listening on TCP or UDP ports
 
 Search for a pattern in a text file  
 >$ grep pattern file
-># For example:
+>For example:
 >$ grep root /etc/passwd
 
 Search recursively for a pattern in a text file inside a directory  
